@@ -4,7 +4,7 @@ export const WorkoutContext = createContext();
 
 
 // we are getting props 
-export const wokroutsReducer = (state, action) => {
+export const workoutsReducer = (state, action) => {
     switch (action.type) {  // in case of fetch something (we will have actions)
         case 'SET_WORKOUTS':
             return {
@@ -27,8 +27,8 @@ export const wokroutsReducer = (state, action) => {
 export const WorkoutsContextProvider = ({ children }) => {
 
     //  const[state, dispatch method] =useReducer
-    const [state, dispatch] = useReducer(wokroutsReducer, {
-        workouts: null // initial state  // this is global variable we can use it anywhere (use State make the variable only in that components where we need to pass th props )
+    const [state, dispatch] = useReducer(workoutsReducer, {
+        workouts: [] // initial state  // this is global variable we can use it anywhere (use State make the variable only in that components where we need to pass th props )
     })
     //  we can have multiple dispatches
     // dispatch({ type: 'DELETE_WORKOUT', payload: })  // dispatch is a function (action perform ) for the WorkoutReducer 

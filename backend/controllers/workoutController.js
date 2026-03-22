@@ -11,7 +11,7 @@ exports.getWorkouts = async (req, res) => {
     // .sort > makes the value sort ( createdAt is in every data & -1 making the last added at the top ( descending order )
     try {
         const workouts = await Workout.find().sort({ createdAt: -1 });
-        if (workouts.lenght === 0)
+        if (workouts.length === 0)
             return res.status(400).json({ error: "No entries found" })
         res.status(200).json(workouts);
     } catch (err) {
@@ -60,7 +60,7 @@ exports.createWorkout = async (req, res) => {
 
     }
     if(emptyFields.length > 0){
-        return res.status(400).json({error : 'Please fill out the fields'}, emptyFields)
+        return res.status(400).json({error : `Please fill out the fields`, emptyFields})
     }  // need to show on frontend 
 
     // add doc to the db

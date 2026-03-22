@@ -30,7 +30,7 @@ const Workoutdetails = ({ workout }) => {
             <p><strong>Load (in kgs)</strong>{workout.load}</p>
             <p> <strong>reps</strong>{workout.reps} </p>
             <p> {workout.createdAt} </p>
-            <span onClick={handleClick} class="material-symbols-outlined">
+            <span onClick={handleClick} className="material-symbols-outlined">
                 delete
             </span>
         </div>
