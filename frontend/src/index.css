@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+HU:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* in the root folder  (variable creating ) */
+:root {
+  --primary: #1aec1a;
+  --error: #e71951;
+}
+
+body {
+  background-color: #f1f1f1;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+header {
+  background-color: #fff;
+
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+header a {
+  color: #333;
+  text-decoration: none;
+}
+
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+
+.workout-details {
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 15px auto;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+}
+
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: var(--primary)
+}
+
+.workout-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+
+}
+
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  padding: 8px;
+  border-radius: 50%;
+  color: #333;
+
+}
+
+.workout-details .material-symbols-outlined:hover  {
+  color: red ;
+  transition: ease-in-out .5s;
+}
+
+.create {
+  max-width: 80%;
+  max-height: fit-content;
+  padding: 10px 20px;
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  /* border: 2px solid red; */
+  box-shadow: 2px 2px 5px rgba(72, 229, 10, 0.912);
+}
+
+
+
+.create input,
+label {
+   display: block;
+}
+input{
+  padding: 10px;
+  margin-top: 10px ;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input .error {
+  background-color: red;
+}
+
+
+form button{
+  background-color: var(--primary);
+   border: 0;
+   color: #fff;
+   padding: 10px;
+   border-top-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+   cursor: pointer;
+}
+form button:hover{
+  color:black;
+  transition: ease-in-out .9s;
+}
+div.error{
+
+  padding: 10px;
+  background-color: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  margin: 20px 0;
+  border-radius: 10px;
+  color: var(--error);
+}
+
+
+
