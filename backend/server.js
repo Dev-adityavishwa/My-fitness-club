@@ -1,6 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const workoutRoutes = require('./routes/workout')
+const userRoutes = require('./routes/user')
 const mongoose = require('mongoose')
 
 dotenv.config()
@@ -15,7 +16,8 @@ app.use((req, res, next) => {
 })
 
 
-app.use('/api/workouts', workoutRoutes)
+app.use('/api/workouts', workoutRoutes) 
+app.use('/api/user', userRoutes) 
 // app.use('/admin', adminroute ) // if you want to create another route 
 
 
