@@ -47,7 +47,20 @@ PATCH      /workout/:id      --> update a single workout
   npm start > to start the application 
 
    
+
+## Authentication 
+
+   ##frontend side                             ##Backend Side
+   
+                                                validator 
+                                                jsonwebtoken
+                                                bcrypt
+   
+   
   
+
+
+
 
 
 

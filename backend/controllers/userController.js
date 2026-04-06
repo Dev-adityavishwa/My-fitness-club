@@ -27,7 +27,7 @@ const signUpUser =  async (req, res) => {
 const loginUser =  async (req, res) => {
 
     const { email, password } = req.body;
-
+    
     try {
         const user = await User.login(email, password)
        
