@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
-
+import { useAuthContext } from '../hooks/useAuthContext'
 
 // create for the dispatch actions
 const Workoutform = () => {
 
-
+    
     const { dispatch } = useWorkoutContext();
+    const { user } = useAuthContext();
 
     // we need some data like title rep ... for this we use useState
     const [title, setTitle] = useState('')
@@ -19,7 +20,11 @@ const Workoutform = () => {
     //    handelling an event 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        
+        if (!user) {
+            setError('User must be logged in')
+            return
+        }
         // res > POST > create a new workout
         const workout = { title, load, reps };
 
@@ -28,7 +33,8 @@ const Workoutform = () => {
             body: JSON.stringify(workout),
             // convert data back into json format 
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${user.token}`  // we need to pass the token in the headers of the request to the backend to access the protected routes in the backend
             }
         })
         const json = await response.json();

@@ -26,7 +26,7 @@ const PORT = process.env.PORT;
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         app.listen(PORT, () => {
-            console.log(`Server is running at: ${PORT} `)
+            console.log(`Server is running at: ${PORT}`)
         })
     })
     .catch((error) => { console.log(error) })

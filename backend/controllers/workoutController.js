@@ -10,7 +10,9 @@ exports.getWorkouts = async (req, res) => {
     // const workouts = await Workout.find({reps : 15})
     // .sort > makes the value sort ( createdAt is in every data & -1 making the last added at the top ( descending order )
     try {
-        const workouts = await Workout.find().sort({ createdAt: -1 });
+        const user_id = req.User._id; // we need to get the user id from the request object ( we are attaching the user to the request object in the requireAuth middleware )
+        const workouts = await Workout.find({ user_id }).sort({ createdAt: -1 });
+
         if (workouts.length === 0)
             return res.status(400).json({ error: "No entries found" })
         res.status(200).json(workouts);
@@ -46,26 +48,27 @@ exports.getWorkout = async (req, res) => {
 exports.createWorkout = async (req, res) => {
     //  using async-await because it might be take some time as it is working with database 
     const { title, load, reps } = req.body
-     
+
     // this is doing just for Error handling
     let emptyFields = [];
-    if(!title){
+    if (!title) {
         emptyFields.push('title is missing')
-        
-    }else if(!load){
+
+    } else if (!load) {
         emptyFields.push('load is missing')
 
-    } else if(!reps){
+    } else if (!reps) {
         emptyFields.push('reps is missing')
 
     }
-    if(emptyFields.length > 0){
-        return res.status(400).json({error : `Please fill out the fields`, emptyFields})
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: `Please fill out the fields`, emptyFields })
     }  // need to show on frontend 
 
     // add doc to the db
     try {
-        const workout = await Workout.create({ title, load, reps }) //create new row in the schema (destructuring)
+        const user_id = req.User._id; // we need to get the user id from the request object ( we are attaching the user to the request object in the requireAuth middleware )
+        const workout = await Workout.create({ title, load, reps, user_id }) //create new row in the schema (destructuring)
         res.status(200).json(workout)
 
     } catch (err) {

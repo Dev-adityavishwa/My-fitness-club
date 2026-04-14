@@ -28,7 +28,7 @@ export const WorkoutsContextProvider = ({ children }) => {
 
     //  const[state, dispatch method] =useReducer
     const [state, dispatch] = useReducer(workoutsReducer, {
-        workouts: [] // initial state  // this is global variable we can use it anywhere (use State make the variable only in that components where we need to pass th props )
+        workouts: null // initial state  // this is global variable we can use it anywhere (use State make the variable only in that components where we need to pass th props )
     })
     //  we can have multiple dispatches
     // dispatch({ type: 'DELETE_WORKOUT', payload: })  // dispatch is a function (action perform ) for the WorkoutReducer 

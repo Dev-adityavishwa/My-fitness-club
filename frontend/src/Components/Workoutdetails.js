@@ -1,17 +1,27 @@
 import React from 'react'
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
 
-
+import { useAuthContext } from '../hooks/useAuthContext'
 // workout details component is to display the data
 
 // getting a prop and destructutring 
 const Workoutdetails = ({ workout }) => {
 
     const { dispatch } = useWorkoutContext();
+    const { user } = useAuthContext();
 
     const handleClick = async () => {
+
+
+        if (!user) {
+            return
+        }
+
         const response = await fetch('/api/workouts/' + workout._id, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${user.token}`  // we need to pass the token in the headers of the request to the backend to access the protected routes in the backend
+            }
         })
 
         // const json = await response.json();

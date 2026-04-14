@@ -41,7 +41,6 @@ PATCH      /workout/:id      --> update a single workout
 
   npx create-react-app frontend
 
-
   npm i react-router-dom 
 
   npm start > to start the application 

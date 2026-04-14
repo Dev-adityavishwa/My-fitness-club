@@ -18,6 +18,10 @@ const workoutSchema = new schema({
         type : Number,
         required : true,
          min : [0 , "load can't be negative"]
+    },
+    user_id:{
+        type : String,
+        required : true
     }
 },
 {

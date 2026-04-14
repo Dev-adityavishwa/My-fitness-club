@@ -1,13 +1,17 @@
 
 const express = require('express')
-
-// for the scope of the app (defined in server.js)
-// create a one own router 
 const router = express.Router()
+
+const requireAuth = require('../middleware/requireAuth')
 
 // this is the schema inserting here for the api's
 const Workout = require('../Models/workoutModel')
 const { createWorkout, getWorkouts, getWorkout, deleteWorkout, updateWorkout } = require('../controllers/workoutController')
+// for the scope of the app (defined in server.js)
+// create a one own router 
+
+
+router.use(requireAuth) // this will run for all the routes defined below it ( it will check if the user is authenticated or not ) if the user is not authenticated then it will return 401 error ( unauthorized ) and if the user is authenticated then it will call the next middleware ( which is the controller function )
 /**
  * Route : /api/workout
  * method : GET
